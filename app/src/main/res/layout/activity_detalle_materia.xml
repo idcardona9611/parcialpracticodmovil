@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".detalleMateria">
+    <TextView
+        android:id="@+id/TitleMateria"
+        android:layout_width="351dp"
+        android:layout_height="62dp"
+        android:gravity="center"
+        android:text="Agrega contenido a la materia"
+        android:textSize="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitleMateria"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/primer_corte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="Primer corte 30%" />
+
+        <RadioButton
+            android:id="@+id/segundo_corte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Segundo corte 30%" />
+
+        <RadioButton
+            android:id="@+id/tercer_corte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onRadioButtonClicked"
+            android:text="Tercer corte 40%" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp">
+
+        <EditText
+            android:id="@+id/nombre_actividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20sp"
+            android:layout_marginRight="20sp"
+            android:ems="10"
+            android:hint="Nombre de la actividad"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/percent_actividad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20sp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="2dp"
+            android:ems="10"
+            android:hint="porcentaje de nota"
+            android:inputType="number"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nombre_actividad"
+            tools:ignore="MissingConstraints" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp">
+            <Button
+                android:id="@+id/agregar_actividad"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="#2196F3"
+                android:onClick="guardarActividad"
+                android:text="Add"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                />
+
+            <Button
+                android:id="@+id/eliminar_actividad"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:background="#E91E63"
+                android:text="Delete"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:onClick="borrarActividad"
+                 />
+            <Button
+                android:id="@+id/actualizar_actividad"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:background="@color/cardview_shadow_start_color"
+                android:text="UPDATE"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:onClick="actualizarActvidad"
+                />
+        </LinearLayout>
+        <ListView
+            android:layout_marginTop="20sp"
+            android:id="@+id/lista_actividades"
+            android:layout_width="match_parent"
+            android:layout_height="@android:dimen/thumbnail_height"
+            android:smoothScrollbar="true"
+            android:nestedScrollingEnabled="false"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
